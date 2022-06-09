@@ -34,7 +34,13 @@ git reset --soft 第一次commitId
 # 这个时候 提交1 提交2 提交3的代码都回归到暂存区 stage/index 
 git commit -m '合并一次提交'
 # 此时git log 只剩下 开始 跟 合并一次提交
-
-
 ```
 
+
+## git mv    rename
+```shell
+# 不用再git add . 一次了
+git mv [oldName] [newName]
+```
+
+大小写敏感问题
