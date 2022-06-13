@@ -64,6 +64,7 @@ git mv [oldName] [newName]
 • git branch -a 本地和远端所有分支
 • 加上v参数== 会显示每个分支最后一个commit eg: git branch -av
 • git brach -D [分支名称] 删除不需要的分支
+• git branch -m 旧分支名称  新分支名称
 
 
 ## git checkout
@@ -80,3 +81,36 @@ git checkout [commit id]
 Author Committer 不一定一样， cherry-pick 后就有区别了
 
 
+## .git 目录
+
+mac/linux cat 查看文件  windows type
+
+
+- git cat-file -t 命令 ， 查看 git 对象的类型
+- git cat-file -p 命令， 查看 git 对象的内容
+- git cat-file -s 命令， 查看 git 对象的大小
+
+
+•	COMMIT_EDITMSG
+•	config               当前 git 的配置文件
+•	description      （仓库的描述信息文件）
+•	HEAD             （指向当前所在的分支），例如当前在 develop 分支，实际指向地址是 refs/heads/develop
+•	hooks [文件夹]
+•	index
+•	info [文件夹]
+•	logs [文件夹]
+•	objects [文件夹]    （存放所有的 git 对象，对象哈希值前 2 位作为文件夹名称，后 38 位作为对象文件名, 可通过 git cat-file -p 命令，拼接文件夹名称+文件名查看）
+•	ORIG_HEAD
+•	refs [文件夹] 
+      •	heads  （存放当前项目的所有分支）
+      •	tags      (存放的当前项目的所有标签，又叫做里程碑)
+
+
+ref 里面heads 里面有对于分支的commit id
+
+使用git cat-file -s commitId  可查看查对应的结构
+
+commit three blob
+
+
+> objects 存放着所有commit, 为了节省空间，blob不使用文件名来命名，同一个内容的文件其哈希名一样，这样就可以节省很多存储空间 
