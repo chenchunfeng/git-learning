@@ -39,8 +39,44 @@ git commit -m '合并一次提交'
 
 ## git mv    rename
 ```shell
-# 不用再git add . 一次了
+# 直接用命令操作，不用修复文件名，再git add
 git mv [oldName] [newName]
 ```
 
-大小写敏感问题
+大小写敏感问题，直接设置大小写敏感
+```shell
+  git config core.ignorecase true
+```
+## git log
+•	git log --all 查看所有分支的历史
+•	git log --all --graph 查看图形化的 log 地址
+•	git log --oneline 查看单行的简洁历史。
+•	git log --oneline -n4 查看最近的四条简洁历史。
+•	git log --oneline --all -n4 --graph 查看所有分支最近 4 条单行的图形化历史。
+•	git help --web log 跳转到git log 的帮助文档网页
+• git reflog 查看分支所有的操作记录(包括已经删除的等)
+• gitk
+
+
+## git branch 
+• git branch 默认本地所有分支
+• git branch -r 远端所有分支
+• git branch -a 本地和远端所有分支
+• 加上v参数== 会显示每个分支最后一个commit eg: git branch -av
+• git brach -D [分支名称] 删除不需要的分支
+
+
+## git checkout
+
+git checkout [分支名] 切换分支
+git checkout -b [分支名] 新建分支并切换到该分支
+git checkout -f [分支名] -f 参数会强制切换分支，并清除掉 stage 和 work 的全部变动！！
+
+git checkout [commit id]
+
+
+## gitk 图形化
+
+Author Committer 不一定一样， cherry-pick 后就有区别了
+
+
