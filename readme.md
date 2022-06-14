@@ -118,8 +118,31 @@ commit three blob
 
 ## 小作业
 
-新建一个文件夹，里面有一个文件，请问有几个commit three blob
+新建一个文件夹，里面有一个文件，请问有几个commit tree blob
+
+- 空间文件夹，不会触发git
+- add 后才会生成objects
+- 使用路径两个字母加文件名前四位查看 git cat-file -s edd0ab type.txt生成一个blob类型的文件
+- commit 后才会生成 commit 类型的object
+- commit类型下，记录tree  这个tree指向另一个tree 这个tree最后才指向blob
+
+1 commit 2 tree 1 blob
 
 
+## 分离头指针注意事项
 
+- git checkout commitId：会出现分离头指针的情况，这种情况下比较危险，因为这个时候你提交的代码没有和分支对应起来，当切换到其他分支的时候(比如master分支)，容易丢失代码；
+- 应用场景，就是在自己做尝试或者测试的时候可以分离头指针，当尝试完毕没有用的时候可以随时丢弃
+- 但是如果觉得尝试有用，那么可以新建一个分支，使用  git branch \<新分支的名称> commitId
 
+## 进一步理解HEAD和branch
+
+<!-- git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
+git diff HEAD HEAD~1 比较最近两次提交
+git diff HEAD HEAD~2 比较最近和倒数第三次提交
+git diff HEAD HEAD^  比较最近两次提交
+git diff HEAD HEAD^^ 比较最近和倒数第三次提交 -->
+
+1
+2
+3
