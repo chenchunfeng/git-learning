@@ -113,4 +113,13 @@ ref 里面heads 里面有对于分支的commit id
 commit three blob
 
 
-> objects 存放着所有commit, 为了节省空间，blob不使用文件名来命名，同一个内容的文件其哈希名一样，这样就可以节省很多存储空间 
+> objects 存放着所有commit, 为了节省空间，blob不使用文件名来命名，同一个内容的文件其哈希名一样，这样就可以节省很多存储空间
+
+
+## 小作业
+
+新建一个文件夹，里面有一个文件，请问有几个commit three blob
+
+
+
+
