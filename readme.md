@@ -1,4 +1,5 @@
 
+# git 基础
 ## git add
 git add -u：将文件的修改、文件的删除，添加到暂存区。(整个仓库)
 git add .： 将文件的修改，文件的删除，文件的新建，添加到暂存区。(当前路径及其子路径下)
@@ -137,12 +138,63 @@ commit three blob
 
 ## 进一步理解HEAD和branch
 
-<!-- git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
+git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
 git diff HEAD HEAD~1 比较最近两次提交
 git diff HEAD HEAD~2 比较最近和倒数第三次提交
 git diff HEAD HEAD^  比较最近两次提交
-git diff HEAD HEAD^^ 比较最近和倒数第三次提交 -->
+git diff HEAD HEAD^^ 比较最近和倒数第三次提交
 
-1
-2
-3
+
+> https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git
+G   H   I   J
+ \ /     \ /
+  D   E   F
+   \  |  / \
+    \ | /   |
+     \|/    |
+      B     C
+       \   /
+        \ /
+         A
+
+A = A^0
+B = A^   = A^1     = A~1
+C = A^2
+D = A^^  = A^1^1   = A~2
+E = B^2  = A^^2
+F = B^3  = A^^3
+G = A^^^ = A^1^1^1 = A~3
+H = D^2  = B^^2    = A^^^2  = A~2^2
+I = F^   = B^3^    = A^^3^
+J = F^2  = B^3^2   = A^^3^2
+
+
+# git 常见场景
+
+## 删除不需要的分支
+
+删除：
+`git branch -d branch_name`   可能会提示not fully merged
+强制删除：
+`git branch -D branch_name`
+
+## 修改最近commit message
+
+> git commit --amend 此修改一般用于未push之前修改commit信息
+如果是远程的个人分支也是可以用的，千万别用于公共开发
+> git commit --amend
+> git push -f
+
+## 修改老旧commit message
+
+这里使用git rebase -i [basePonit] [endPoint]  一般不加endPoint，会丢弃endPoint后面的commit
+
+
+
+pick	  p	保留该commit
+reword	r	保留该commit，但需要修改该commit的注释
+edit	  e	保留该commit, 但我要停下来修改该提交(不仅仅修改注释)
+squash	s	将该commit合并到前一个commit
+fixup	  f	将该commit合并到前一个commit，但不要保留该提交的注释信息
+exec	  x	执行shell命令
+drop	  d	丢弃该commit
