@@ -190,7 +190,6 @@ J = F^2  = B^3^2   = A^^3^2
 这里使用git rebase -i [basePonit] [endPoint]  一般不加endPoint，会丢弃endPoint后面的commit
 
 
-
 pick	  p	保留该commit
 reword	r	保留该commit，但需要修改该commit的注释
 edit	  e	保留该commit, 但我要停下来修改该提交(不仅仅修改注释)
@@ -198,3 +197,11 @@ squash	s	将该commit合并到前一个commit
 fixup	  f	将该commit合并到前一个commit，但不要保留该提交的注释信息
 exec	  x	执行shell命令
 drop	  d	丢弃该commit
+
+把需要修改message的commit 前面的类型改成reword
+
+
+## 连续的多个commit整理成1个
+
+注意到上面的参数
+squash 和 fixup 可用到
