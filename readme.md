@@ -250,3 +250,7 @@ git diff HEAD
 暂存区恢复成HEAD : git reset HEAD
 
 暂存区覆盖工作区修改：git checkout 
+
+## 消除最近的几次提交
+
+可以使用git reset --hard HEAD~n   
