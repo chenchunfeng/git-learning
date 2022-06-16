@@ -209,4 +209,44 @@ squash 和 fixup 可用到
 
 ## 不连续的多个commit整理成1个
 
-容易发生冲突
+容易发生冲突,
+
+> 都不要在公共分支上使用
+
+
+## 比较暂存区和HEAD所含文件的差异
+
+git diff --cached HEAD
+git diff --cached
+
+## 比较工作区和暂存区所含文件的差异
+
+git diff
+
+## 比较工作区和HEAD区所含文件的差异
+
+git diff HEAD
+
+## 暂存区恢复成和HEAD的一样
+
+有三个参数
+ --mixed 保留工作区 清除缓存区   default
+ --soft  保留工作区 保留缓存区
+ --hard  清除工作区 清除缓存区
+
+ git reset
+
+## 工作区的文件恢复为和暂存区一样
+
+
+ git checkout filename
+
+ 已暂存区为中心
+
+暂存区与HEAD比较：git diff --cached
+
+暂存区与工作区比较:  git diff
+
+暂存区恢复成HEAD : git reset HEAD
+
+暂存区覆盖工作区修改：git checkout 
