@@ -205,3 +205,8 @@ drop	  d	丢弃该commit
 
 注意到上面的参数
 squash 和 fixup 可用到
+
+
+## 不连续的多个commit整理成1个
+
+容易发生冲突
