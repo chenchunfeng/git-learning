@@ -261,7 +261,7 @@ git diff HEAD
 
 应该使用 git rm filename1 filename2  删除文件跟添加到暂存区了
 
-## stash
+## 加塞任务之 stash
 
 WIP working in progress
 
@@ -285,3 +285,48 @@ git stash drop [stash_id]
 git stash clear
 删除所有存储的进度。
 
+
+## 如何指定不需要Git管理的文件
+
+.gitignore 定义不跟踪目录、文件
+
+常见配置
+```
+# 此为注释 – 将被 Git 忽略
+
+*.a       # 忽略所有 .a 后缀结尾的文件  * 通用匹配零个或多个字符
+!lib.a    # 但 lib.a 除外   !开头的模式标识否定
+/TODO     # 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO
+build/    # 忽略 build/ 目录下的所有文件
+doc/*.txt # 会忽略 doc/notes.txt 但不包括 doc/server/arch.txt
+*ignore/  # 忽略名称中末尾为ignore的文件夹
+*ignore*/ # 忽略名称中间包含ignore的文件夹
+**/node_modules  #   ** 匹配多级目录，可在开始，中间，结束
+```
+
+如果文件已经添加到暂存区 可使用git rm -- cached name_of_file 删除
+
+
+## 备份文件
+
+```shell
+# 拉取克隆远程仓库
+git clone --bare file:///XXXX/.git  remoteRepoName.git
+# bare不包含工作区，作为远端，以后备份方便一点
+
+
+# 本地初始化仓库关联远程
+
+git remote add remoteRepoName file:///XXXX/remoteRepoName.git
+
+# 本地发送一些改动，比如新增分支develop 推送分支变动到远程
+
+git push --set-upstream remoteRepoName develop
+
+# 再到远程库下面查看就会发现远程也有develop分支了
+```
+
+协议
+- 本地协议
+- 远程http/https
+- ssl
