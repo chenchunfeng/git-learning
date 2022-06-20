@@ -146,6 +146,7 @@ git diff HEAD HEAD^^ 比较最近和倒数第三次提交
 
 
 > https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git
+
 G   H   I   J
  \ /     \ /
   D   E   F
@@ -328,5 +329,16 @@ git push --set-upstream remoteRepoName develop
 
 协议
 - 本地协议
-- 远程http/https
-- ssl
+- 远程http/https 
+- ssh
+
+
+# github
+  [ssh文档链接](https://docs.github.com/cn/authentication/connecting-to-github-with-ssh/checking-for-existing-ssh-keys)
+
+  1. 打开 Git Bash。  输入ls -al ~/.ssh以查看是否存在现有的 SSH 密钥。
+  2. ssh-keygen -t ed25519 -C "your_email@example.com"
+  3. 打开id_ed25519.pub 复制内容
+  4. 打开github SSH and GPG keys 设置 new keys
+
+这样就使用ssl关联了一对的公私钥
