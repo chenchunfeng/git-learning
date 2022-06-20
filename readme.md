@@ -138,15 +138,16 @@ commit three blob
 
 ## 进一步理解HEAD和branch
 
-git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
-git diff HEAD HEAD~1 比较最近两次提交
-git diff HEAD HEAD~2 比较最近和倒数第三次提交
-git diff HEAD HEAD^  比较最近两次提交
-git diff HEAD HEAD^^ 比较最近和倒数第三次提交
+- git checkout -b new_branch [具体分支 或 commit] 创建新分支并切换到新分支
+- git diff HEAD HEAD~1 比较最近两次提交
+- git diff HEAD HEAD~2 比较最近和倒数第三次提交
+- git diff HEAD HEAD^  比较最近两次提交
+- git diff HEAD HEAD^^ 比较最近和倒数第三次提交
 
 
-> https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git
+[相关文档](https://stackoverflow.com/questions/2221658/whats-the-difference-between-head-and-head-in-git)
 
+```
 G   H   I   J
  \ /     \ /
   D   E   F
@@ -157,17 +158,18 @@ G   H   I   J
        \   /
         \ /
          A
+```
 
-A = A^0
-B = A^   = A^1     = A~1
-C = A^2
-D = A^^  = A^1^1   = A~2
-E = B^2  = A^^2
-F = B^3  = A^^3
-G = A^^^ = A^1^1^1 = A~3
-H = D^2  = B^^2    = A^^^2  = A~2^2
-I = F^   = B^3^    = A^^3^
-J = F^2  = B^3^2   = A^^3^2
+- A = A^0
+- B = A^   = A^1     = A~1
+- C = A^2
+- D = A^^  = A^1^1   = A~2
+- E = B^2  = A^^2
+- F = B^3  = A^^3
+- G = A^^^ = A^1^1^1 = A~3
+- H = D^2  = B^^2    = A^^^2  = A~2^2
+- I = F^   = B^3^    = A^^3^
+- J = F^2  = B^3^2   = A^^3^2
 
 
 # git 常见场景
@@ -342,3 +344,26 @@ git push --set-upstream remoteRepoName develop
   4. 打开github SSH and GPG keys 设置 new keys
 
 这样就使用ssl关联了一对的公私钥
+
+远程新建项目,生成带readme license的项目
+
+1. 关联项目 git remote add origin url/ssh
+2. 通过 git branch -va 可查看是否添加到远程
+3. 使用 git push origin/master --all 会拒绝master分支提交 但dev会提交成功
+4. git fetch origin/master
+5. git merge origin/master 出现报错fatal: refusing to merge unrelated histories
+6. 添加参数    --allow-unrelated-histories  allow merging unrelated histories
+7. git merge origin/master --allow-unrelated-histories
+8. git push origin --all
+
+
+
+```shell
+# 设置默认上游分支
+# -u, --set-upstream    set upstream for git pull/status
+git push -u origin master 
+# 其实，执行添加了-u 参数的命令 git push -u origin master就相当于是执行了
+git branch --set-upstream master origin/master
+git push origin master
+# 可通过git branch -vv查看跟踪关系
+```
