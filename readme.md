@@ -367,3 +367,28 @@ git branch --set-upstream master origin/master
 git push origin master
 # 可通过git branch -vv查看跟踪关系
 ```
+
+
+# 同一分支多人协做
+
+本地再clone 一个项目，修改username email 模拟多人
+
+## 不同人修改不同文件
+- 其它人先push 远程分析，这时你再push，会被拒绝。
+- 这种情况不会产生冲突，但需要git fetch git merge/ git pull 产品新的merge commit 后就可以git push
+
+
+## 不同人修改同文件不同区域
+
+这个跟上面情况一样，没有冲突
+
+
+## 不同人修改同文件同区域
+
+要处理冲突后 再
+- git add
+- git commit
+- git push
+
+
+## 不同人修改同文件同区域
