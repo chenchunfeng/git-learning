@@ -374,13 +374,17 @@ git push origin master
 本地再clone 一个项目，修改username email 模拟多人
 
 ## 不同人修改不同文件
-- 其它人先push 远程分析，这时你再push，会被拒绝。
+- 其它人先push 远程分支，这时你再push，会被拒绝。
 - 这种情况不会产生冲突，但需要git fetch git merge/ git pull 产品新的merge commit 后就可以git push
 
 
+> git fetch 相于更新本地的远程分支
+> git full  相当直接合远程分支合并
+> git brach -av 可以查看你的分支是 在远程分支提交点之前还是之后
 ## 不同人修改同文件不同区域
 
 这个跟上面情况一样，没有冲突
+
 
 
 ## 不同人修改同文件同区域
