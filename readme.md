@@ -396,3 +396,6 @@ git push origin master
 
 
 ## 同时更改了文件名及内容
+## 不同人修改同文件同区域
+
+a
