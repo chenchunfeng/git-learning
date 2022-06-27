@@ -398,4 +398,10 @@ git push origin master
 ## 同时更改了文件名及内容
 ## 不同人修改同文件同区域
 
-a
+
+## git 集成禁忌
+
+> git push -f         -f, --force           force updates   !!
+github gitlab 可以设置不能使用 -f
+
+> 公共分支不要使用 rebase
