@@ -399,3 +399,10 @@ git push origin master
 ## 不同人修改同文件同区域
 
 git mv readme.md readme-b.md
+
+## git 集成禁忌
+
+> git push -f         -f, --force           force updates   !!
+github gitlab 可以设置不能使用 -f
+
+> 公共分支不要使用 rebase
