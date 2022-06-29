@@ -406,3 +406,34 @@ git mv readme.md readme-b.md
 github gitlab 可以设置不能使用 -f
 
 > 公共分支不要使用 rebase
+
+
+## github 高级筛选
+
+[search/advanced](https://github.com/search/advanced)
+
+列举一些基本的
+
+```bash
+# 关键字 in:
+# in: 示例 搜索name description readme文件内容中包含js的项目
+js in:name,description,readme # 逗号分割表示或的意思
+
+# 通过 stars、fork 数量搜索
+# 示例 搜索name文件内容中包含js的项目 并且其start 大于 10 forks 大于20
+js in:name stars:>10 forks:>20
+
+
+# 按创建、更新时间搜索
+# 创建时间
+关键字 created:>=YYYY-MM-DD
+# 更新时间
+关键字 pushed:>=YYYY-MM-DD
+# 示例
+python in:name created:>=2020-01-01 pushed:>=2020-01-01
+```
+
+
+
+
+
